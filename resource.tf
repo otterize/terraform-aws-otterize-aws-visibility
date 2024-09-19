@@ -1,5 +1,5 @@
 resource "aws_iam_role_policy" "otterize_visibility_integration_role_inline_policy" {
-  name = substr("otterize-${var.external_id}-EksViewOnlyAccess", 0, 64)
+  name = "otterize-${var.external_id}-EksViewOnlyAccess"
   role = aws_iam_role.otterize_visibility_integration_role.id
   policy = jsonencode({
     Version = "2012-10-17"
@@ -42,7 +42,7 @@ resource "aws_iam_role" "otterize_visibility_integration_role" {
       ]
   })
   path = "/"
-  name = substr("otterize-${var.external_id}-VisibilityCollectorRole", 0, 64)
+  name = "otterize-${var.external_id}-VisibilityCollectorRole"
   tags = {
     "otterize/system" = "true"
   }
